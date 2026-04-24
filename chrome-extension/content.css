@@ -1,0 +1,87 @@
+.frd-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fff8e8, #ffffff);
+  border: 1px solid #f0d18c;
+  box-shadow: 0 10px 24px rgba(40, 35, 20, 0.08);
+  font-family: Arial, sans-serif;
+}
+
+.frd-pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.frd-badge--fake {
+  background: #c0392b;
+}
+
+.frd-badge--genuine {
+  background: #1f7a4d;
+}
+
+.frd-meta {
+  font-size: 12px;
+  color: #5f4b1c;
+}
+
+.frd-product-badge {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2147483647;
+  width: 180px;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(124, 45, 18, 0.94));
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+.frd-product-title {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fdba74;
+}
+
+.frd-product-pill {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.frd-trust--high {
+  background: #15803d;
+}
+
+.frd-trust--medium {
+  background: #d97706;
+}
+
+.frd-trust--low {
+  background: #b91c1c;
+}
+
+.frd-product-score {
+  margin-top: 10px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.frd-product-meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #e5e7eb;
+}

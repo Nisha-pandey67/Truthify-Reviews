@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Review Detector</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Fake Review Detector</p>
+          <h1>Review Trust Dashboard</h1>
+          <p class="subtitle">Analyze ecommerce product reviews, spot suspicious patterns, and compare recent scans.</p>
+        </div>
+        <div class="hero-score">
+          <span>Trust Score</span>
+          <strong id="heroTrustScore">--</strong>
+        </div>
+      </section>
+
+      <section class="settings">
+        <label class="field">
+          <span>Backend API URL</span>
+          <input id="apiBaseUrl" type="text" placeholder="http://127.0.0.1:5000">
+        </label>
+
+        <label class="field">
+          <span>API key</span>
+          <input id="apiKey" type="password" placeholder="Optional secret key">
+        </label>
+
+        <label class="field">
+          <span>Sensitivity threshold</span>
+          <input id="threshold" type="number" min="0" max="1" step="0.05" value="0.5">
+        </label>
+
+        <label class="field checkbox-field">
+          <input id="autoScan" type="checkbox">
+          <span>Auto-scan supported review pages when they open</span>
+        </label>
+
+        <div class="actions">
+          <button id="saveButton" class="secondary">Save Settings</button>
+          <button id="analyzeButton">Analyze This Page</button>
+        </div>
+        <div class="actions export-actions">
+          <button id="exportButton" class="secondary">Export Report</button>
+          <button id="printButton" class="secondary">Print PDF Report</button>
+        </div>
+      </section>
+
+      <section id="status" class="status">Checking page...</section>
+
+      <section id="dashboard" class="dashboard hidden">
+        <div class="card-grid">
+          <article class="card metric-card">
+            <span>Total Reviews</span>
+            <strong id="metricTotalReviews">0</strong>
+          </article>
+          <article class="card metric-card">
+            <span>Fake Reviews</span>
+            <strong id="metricFakeReviews">0</strong>
+          </article>
+          <article class="card metric-card">
+            <span>Genuine Reviews</span>
+            <strong id="metricGenuineReviews">0</strong>
+          </article>
+          <article class="card metric-card">
+            <span>Avg Fake Risk</span>
+            <strong id="metricAverageRisk">0%</strong>
+          </article>
+        </div>
+
+        <div class="chart-grid">
+          <article class="card">
+            <div class="card-head">
+              <h2>Pie Chart</h2>
+              <span>Genuine vs fake mix</span>
+            </div>
+            <div class="chart-panel">
+              <div id="pieChart" class="pie-chart"></div>
+              <div id="pieLegend" class="legend"></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h2>Trend Analysis</h2>
+              <span>Fake probability by review order</span>
+            </div>
+            <div id="trendChart" class="trend-chart"></div>
+          </article>
+        </div>
+
+        <div class="chart-grid">
+          <article class="card">
+            <div class="card-head">
+              <h2>Sentiment Analysis</h2>
+              <span>Positive, neutral, and negative review tone</span>
+            </div>
+            <div id="sentimentBars" class="risk-bars"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h2>Risk Buckets</h2>
+              <span>High, medium, and low suspicion</span>
+            </div>
+            <div id="riskBars" class="risk-bars"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h2>Recent Scan Trend</h2>
+              <span>Trust score from recent analyses</span>
+            </div>
+            <div id="historyTrend" class="history-trend"></div>
+          </article>
+        </div>
+
+        <div class="list-grid">
+          <article class="card">
+            <div class="card-head">
+              <h2>Reviewer Similarity</h2>
+              <span>Repeated or closely matching review wording</span>
+            </div>
+            <div id="similarityList" class="review-list"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h2>Pattern Signals</h2>
+              <span>Common suspicious phrases and styles</span>
+            </div>
+            <div id="patternList" class="tag-list"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h2>Top Suspicious Reviews</h2>
+              <span>Highest fake probability and warning reasons</span>
+            </div>
+            <div id="suspiciousList" class="review-list"></div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

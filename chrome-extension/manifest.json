@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Fake Review Detector",
+  "version": "1.0.0",
+  "description": "Analyze ecommerce reviews and flag suspicious content using your ML API.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:5000/*",
+    "http://localhost:5000/*",
+    "https://*.amazon.in/*",
+    "https://*.amazon.com/*",
+    "https://*.amazon.co.uk/*",
+    "https://*.flipkart.com/*",
+    "https://*.myntra.com/*",
+    "https://*.meesho.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Fake Review Detector",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.amazon.in/*",
+        "https://*.amazon.com/*",
+        "https://*.amazon.co.uk/*",
+        "https://*.flipkart.com/*",
+        "https://*.myntra.com/*",
+        "https://*.meesho.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
