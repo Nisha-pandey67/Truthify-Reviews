@@ -1,47 +1,149 @@
-# Fake Review Detector Chrome Extension
+# 🔍 Truthify Reviews
 
-This folder contains a starter Chrome extension that connects your ecommerce review pages to the Flask model API in `src/api.py`.
+> AI-powered Chrome Extension to detect fake product reviews using Machine Learning
 
-## Folder structure
+---
 
-- `manifest.json`: Chrome extension manifest (Manifest V3)
-- `background.js`: Sends requests to your Flask API and stores hosted API settings
-- `content.js`: Reads reviews from supported product pages and injects labels
-- `content.css`: Styles the injected labels
-- `popup.html`, `popup.css`, `popup.js`: Small extension control panel
+## 🚀 Overview
 
-## How to run the backend
+**Truthify Reviews** is a Chrome Extension + backend system that analyzes product reviews and classifies them as **Fake** or **Genuine** using a trained machine learning model.
 
-From the project root:
+It helps users make smarter buying decisions by identifying misleading or spam reviews on e-commerce platforms.
 
-```powershell
+---
+
+## ✨ Features
+
+* 🔎 Detects **fake vs genuine reviews**
+* ⚡ Fast predictions using Flask API
+* 🧠 ML model (TF-IDF + classification)
+* 🌐 Works directly on product pages
+* 🧩 Chrome Extension integration
+* 📊 Trained on large dataset (100K+ reviews)
+
+---
+
+## 🛠 Tech Stack
+
+**Frontend (Extension):**
+
+* JavaScript
+* HTML, CSS (Chrome Extension Manifest V3)
+
+**Backend:**
+
+* Python
+* Flask
+
+**Machine Learning:**
+
+* Scikit-learn
+* TF-IDF Vectorizer
+* Logistic Regression
+
+---
+
+## 📂 Project Structure
+
+```
+Truthify-Reviews/
+│
+├── chrome-extension/      # Chrome extension files
+├── src/                   # Backend API + ML model
+│   ├── api.py
+│   ├── model.pkl
+│   ├── tfidf_vectorizer.pkl
+│
+├── .gitignore
+├── DEPLOYMENT_GUIDE.md
+├── dockerfile
+└── README.md
+```
+
+---
+
+## ⚙️ How to Run Locally
+
+### 1️⃣ Clone the repository
+
+```
+git clone https://github.com/Nisha-pandey67/Truthify-Reviews.git
+cd Truthify-Reviews
+```
+
+---
+
+### 2️⃣ Setup backend
+
+```
+pip install -r src/api_requirements.txt
 python src/api.py
 ```
 
-The extension expects the API at `http://127.0.0.1:5000` by default.
+API will run at:
 
-## Production settings
+```
+http://127.0.0.1:5000
+```
 
-- Open the extension popup and set your hosted backend URL
-- If you configured `FAKE_REVIEW_API_KEY` on the backend, paste the same key in the popup
-- Restrict backend CORS with `ALLOWED_ORIGINS`
+---
 
-## How to load the extension
+### 3️⃣ Load Chrome Extension
 
-1. Open Chrome.
-2. Go to `chrome://extensions/`.
-3. Enable `Developer mode`.
-4. Click `Load unpacked`.
-5. Select this `chrome-extension` folder.
+1. Open Chrome
+2. Go to: `chrome://extensions/`
+3. Enable **Developer Mode**
+4. Click **Load Unpacked**
+5. Select `chrome-extension/` folder
 
-## Current support
+---
 
-- Amazon product review pages
-- Basic Flipkart review containers
+### 4️⃣ Use the Extension
 
-## Next improvements
+* Open any product page (Amazon / Flipkart)
+* Activate extension
+* Reviews will be labeled as:
 
-- Add Myntra and Meesho selectors
-- Show per-review explanation
-- Add product-level dashboard on the page
-- Publish the extension with store assets and a privacy policy
+  * ✅ Genuine
+  * ❌ Fake
+
+---
+
+## 🧠 How It Works
+
+1. Reviews are extracted from the webpage
+2. Sent to Flask API
+3. Converted using TF-IDF
+4. Passed to trained ML model
+5. Prediction returned (Fake / Genuine)
+
+---
+
+## 🔮 Future Improvements
+
+* 📊 Confidence score (e.g., Fake – 92%)
+* 🧠 Explanation for predictions
+* 🛒 Support for more platforms
+* ☁️ Full cloud deployment
+* 📈 Analytics dashboard
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👩‍💻 Author
+
+**Nisha Pandey**
+GitHub: https://github.com/Nisha-pandey67
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
+
+
