@@ -7,7 +7,9 @@ venv/
 
 # Dataset
 Data/
-*.csv
+
+# Reports
+Reports/
 
 # Secrets
 .env
@@ -15,16 +17,9 @@ Data/
 # Logs
 *.log
 
-# OS files
+# OS
 .DS_Store
 Thumbs.db
 
-# Reports (large images)
-Reports/
-
 # Temp files
-temp.py
-tempCodeRunnerFile.py
-
-# Model (optional decision)
-*.pkl
+*temp*
